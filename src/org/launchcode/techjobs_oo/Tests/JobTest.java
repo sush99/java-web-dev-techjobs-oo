@@ -37,4 +37,34 @@ public class JobTest {
         assertFalse(job1 == job2);
     }
 
+    @Test
+    public void testToStringForEmpty(){
+        String expectedString = "OOPS! This job does not seem to exist.";
+        Job job3 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        assertEquals(job3.toString(), expectedString);
+    }
+
+    @Test
+    public void testToStringForFull(){
+        Job job3 = new Job("Ice cream taster", new Employer("Hawaii"), new Location("Home"), new PositionType("UX"), new CoreCompetency("Taste"));
+        String expectedString = "\nID: 3\n" +//3 because its the third to be initialized in this context
+                "Name: Ice cream taster\n" +
+                "Employer: Hawaii\n" +
+                "Location: Home\n" +
+                "Position Type: UX\n" +
+                "Core Competency: Taste";
+        assertEquals(expectedString, job3.toString());
+    }
+
+    @Test
+    public void testToStringForNonChar(){
+        Job job3 = new Job("Ice cream taster", new Employer("123"), new Location("Home"), new PositionType("UX"), new CoreCompetency("Taste"));
+        String expectedString = "\nID: 3\n" +//3 because its the third to be initialized in this context
+                "Name: Ice cream taster\n" +
+                "Employer: 123\n" +
+                "Location: Home\n" +
+                "Position Type: UX\n" +
+                "Core Competency: Taste";
+        assertEquals(expectedString, job3.toString());
+    }
 }
