@@ -43,10 +43,7 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id, name, employer, location, positionType, coreCompetency);
     }
-
-
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
+    
 
     public String getName() {
         return name;
