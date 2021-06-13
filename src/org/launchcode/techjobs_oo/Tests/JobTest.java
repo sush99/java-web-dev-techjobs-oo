@@ -10,11 +10,14 @@ public class JobTest {
     private Job job1;
     private Job job2;
 
+
+
     @Before
     public void createJobObjects(){
         job1 = new Job();
         job2 = new Job();
     }
+
 
     @Test
     public void testSettingJobId(){
@@ -47,24 +50,26 @@ public class JobTest {
     @Test
     public void testToStringForFull(){
         Job job3 = new Job("Ice cream taster", new Employer("Hawaii"), new Location("Home"), new PositionType("UX"), new CoreCompetency("Taste"));
-        String expectedString = "\nID: 3\n" +//3 because its the third to be initialized in this context
-                "Name: Ice cream taster\n" +
+        String expectedString = String.format("\nID: "+ job3.getId() +//3 because its the third to be initialized in this context
+                "\nName: Ice cream taster\n" +
                 "Employer: Hawaii\n" +
                 "Location: Home\n" +
                 "Position Type: UX\n" +
-                "Core Competency: Taste";
+                "Core Competency: Taste");
         assertEquals(expectedString, job3.toString());
     }
 
     @Test
     public void testToStringForNonChar(){
-        Job job3 = new Job("Ice cream taster", new Employer("123"), new Location("Home"), new PositionType("UX"), new CoreCompetency("Taste"));
-        String expectedString = "\nID: 3\n" +//3 because its the third to be initialized in this context
-                "Name: Ice cream taster\n" +
+        Job job = new Job("Ice cream taster", new Employer("123"), new Location("Home"), new PositionType("UX"), new CoreCompetency("Taste"));
+        String expectedString = String.format("\nID: " + job.getId() +//3 because its the third to be initialized in this context
+                "\nName: Ice cream taster\n" +
                 "Employer: 123\n" +
                 "Location: Home\n" +
                 "Position Type: UX\n" +
-                "Core Competency: Taste";
-        assertEquals(expectedString, job3.toString());
+                "Core Competency: Taste");
+        assertEquals(expectedString, job.toString());
     }
+
+
 }

@@ -41,16 +41,16 @@ public class Job {
             return "OOPS! This job does not seem to exist.";
         }
         if(tempEmployer.isEmpty()) {
-            tempEmployer = "___________";
+            tempEmployer = "Data not available";
         }
         if(tempLocation.isEmpty()){
-            tempLocation = "___________";
+            tempLocation = "Data not available";
         }
         if(tempPositionType.isEmpty()){
-            tempPositionType = "___________";
+            tempPositionType = "Data not available";
         }
         if(tempCoreComp.isEmpty()){
-            tempCoreComp = "___________";;
+            tempCoreComp = "Data not available";;
         }
 
         return  "\nID: " + id +
